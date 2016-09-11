@@ -14,3 +14,4 @@ var InsertionSort = function(a, from, to) {
 		a[j + 1] = element;
 	}
 };
+ 
