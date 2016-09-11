@@ -1,2 +1,2 @@
 # Algorithm-Learning
-Some solutions
+Solutions and Algorithms
