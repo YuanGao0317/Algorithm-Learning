@@ -40,4 +40,18 @@ LinkedList.prototype.deleteDups = function(n){
 		}
 		n = n.next;
 	}
-}
+};
+
+LinkedList.prototype.printKthToLast = function(n, k) {
+	if (n === null) {
+		return 0;
+	}
+
+	var index = this.printKthToLast(n.next, k) + 1;
+	
+	if (index === k) {
+		console.log(k + "th to last node is " + n.data);
+	}
+	
+	return index;
+};
