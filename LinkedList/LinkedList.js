@@ -55,3 +55,18 @@ LinkedList.prototype.printKthToLast = function(n, k) {
 	
 	return index;
 };
+
+
+var addLists = function(n1, n2, carry) {
+	if (n1 === null && n2 === null && carry === 0) return 0;
+	var value = carry;
+	if (n1 !== null) value += n1.data;
+	if (n2 !== null) value += n2.data;
+	
+	var nNode = new Node(value % 10);
+	if (n1 !== null || n2 !== null || value !== 0) {
+		var next = addLists(n1 === null ? null : n1.next, n2 === null ? null : n2.next, value >= 10 ? 1 : 0);
+		nNode.next = next;
+	}
+	return nNode;
+};
