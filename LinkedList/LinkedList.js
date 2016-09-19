@@ -120,7 +120,7 @@ function addTogetherLinkedLists(list1, list2, carry) {
   resultNode.value = value % 10;
 
   if (list1 !== null || list2 !== null) {
-    var newNode = addTogetherLinkedLists(list1 !== null ? list1.next : null, list2 !== null ? list2.next : null, Math.floor(currentNumber / 10));
+    var newNode = addTogetherLinkedLists(list1 !== null ? list1.next : null, list2 !== null ? list2.next : null, Math.floor(value / 10));
     resultNode.next = newNode;
   }
 
