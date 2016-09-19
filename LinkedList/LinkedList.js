@@ -99,3 +99,30 @@ function partition(node, value) {
 	
 	return head;
 }
+
+
+
+function addTogetherLinkedLists(list1, list2, carry) {
+  if (list1 === null && list2 === null && carry === 0) {
+    return null;
+  }
+
+  var resultNode = new Node(null);
+  var value = carry;
+  
+  if (list1 !== null) {
+    value += list1.value;
+  }
+  if (list2 !== null) {
+    value += list2.value;
+  }
+
+  resultNode.value = value % 10;
+
+  if (list1 !== null || list2 !== null) {
+    var newNode = addTogetherLinkedLists(list1 !== null ? list1.next : null, list2 !== null ? list2.next : null, Math.floor(currentNumber / 10));
+    resultNode.next = newNode;
+  }
+
+  return resultNode;
+}
