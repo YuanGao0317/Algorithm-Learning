@@ -57,7 +57,7 @@ LinkedList.prototype.printKthToLast = function(n, k) {
 };
 
 
-var addLists = function(n1, n2, carry) {
+function addLists(n1, n2, carry) {
 	if (n1 === null && n2 === null && carry === 0) return 0;
 	var value = carry;
 	if (n1 !== null) value += n1.data;
@@ -70,3 +70,10 @@ var addLists = function(n1, n2, carry) {
 	}
 	return nNode;
 };
+
+function deleteMiddleNode(n) {
+  if (n.next === null || n === null) throw new Error("list has one node or the node is null");
+  
+  n.value = n.next.value;
+  n.next = n.next.next;
+}
