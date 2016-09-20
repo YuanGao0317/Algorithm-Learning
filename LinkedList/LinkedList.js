@@ -133,8 +133,8 @@ function isPalindromeList(head) {
   while (node.next !== null) {
     var value = node.data;
     
-    if (checkStack.includes(value)) {
-      var i = checkStack.indexOf(value);
+    if (checkStack.includes(value)) {   //may cost extra time
+      var i = checkStack.indexOf(value);  //may cost extra time
       checkStack.splice(i,1);
     } else {
       checkStack.push(value);
