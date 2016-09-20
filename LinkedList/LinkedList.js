@@ -151,3 +151,20 @@ function isPalindromeList(head) {
   return checkStack.length === 1 ? true : false;
 }
 
+function intersection(list1, list2) {
+  var hash = {};
+  var node = list1._length > list2._length ? list1.head : list2.head;
+  do {
+    if (hash[node.data] === 'undefine') {
+      hash[node.data] = node.next;
+    } else {
+      if (hash[node.data] == node.next) {
+        return true;
+      }
+    }
+    node = node.next;
+  } while (node.next === null);
+  
+  return false;
+}
+
