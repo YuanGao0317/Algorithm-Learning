@@ -126,3 +126,28 @@ function addTogetherLinkedLists(list1, list2, carry) {
 
   return resultNode;
 }
+
+function isPalindromeList(head) {
+  var node = head;
+  var checkStack = [];
+  while (node.next !== null) {
+    var value = node.data;
+    
+    if (checkStack.includes(value)) {
+      var i = checkStack.indexOf(value);
+      checkStack.splice(i,1);
+    } else {
+      checkStack.push(value);
+    }
+    node = node.next;
+  }
+  
+  if (head.data === node.data) {
+    checkStack.splice(0,1);
+  } else {
+    checkStack.push(node.data);
+  }
+  
+  return checkStack.length === 1 ? true : false;
+}
+
