@@ -168,3 +168,26 @@ function intersection(list1, list2) {
   return false;
 }
 
+
+function findNodeAtLoopInLinkedList(head) {
+  
+  var fastRunner = head.next.next;
+  var slowRunner = head.next;
+  
+  while (fastRunner !== slowRunner && fastRunner !== null) {
+    slowRunner = slowRunner.next;
+    fastRunner = fastRunner.next.next;
+  }
+  
+  if (fastRunner === null) {
+    throw Error("No loop found in linked list");
+  }
+  
+  var startRunner = head;
+  
+  while (startRunner !== slowRunner) {
+    startRunner = startRunner.next;
+    slowRunner = slowRunner.next;
+  }
+  return startRunner;
+}
