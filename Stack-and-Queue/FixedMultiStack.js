@@ -23,7 +23,7 @@ FixedMultiStack.prototype.indexOfTop = function(stackNum){
 };
 
 FixedMultiStack.prototype.pop = function(stackNum){
-	if (this.isEmpty) throw Error("Stack is empty.");
+	if (this.isEmpty(stackNum)) throw Error("Stack is empty.");
 	var topIndex = indexOfTop(stackNum);
 	var value = this.values[topIndex];
 	this.values[topIndex] = 0;
@@ -31,7 +31,9 @@ FixedMultiStack.prototype.pop = function(stackNum){
 	return value;
 };
 
-
+FixedMultiStack.prototype.isEmpty = function(stackNum){
+	return this.sizes[stackNum] === 0;
+};
 
 
 
