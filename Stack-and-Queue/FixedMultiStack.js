@@ -35,5 +35,9 @@ FixedMultiStack.prototype.isEmpty = function(stackNum){
 	return this.sizes[stackNum] === 0;
 };
 
-
+FixedMultiStack.prototype.peek = function(stackNum){
+	if (this.isEmpty(stackNum)) throw Error("Stack is empty.");
+	
+	return this.values[indexOfTop(stackNum)];
+};
 
