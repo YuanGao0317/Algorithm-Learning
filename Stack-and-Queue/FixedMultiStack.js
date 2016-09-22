@@ -1,4 +1,3 @@
-
 function FixedMultiStack (stackSize){
 	this.numberOfStacks = 3;
 	this.stackCapacity = stackSize;
@@ -7,9 +6,7 @@ function FixedMultiStack (stackSize){
 }
 
 FixedMultiStack.prototype.push = function(stackNum, value){
-	if (this.isFull(stackNum)) {
-		throw Error("Stack is full.");
-	}
+	if (this.isFull(stackNum)) throw Error("Stack is full.");
 	
 	this.sizes[stackNum]++;
 	this.values[indexOfTop] = value;
@@ -24,3 +21,17 @@ FixedMultiStack.prototype.indexOfTop = function(stackNum){
 	var size = this.sizes[stackNum];
 	return offset + size - 1;
 };
+
+FixedMultiStack.prototype.pop = function(stackNum){
+	if (this.isEmpty) throw Error("Stack is empty.");
+	var topIndex = indexOfTop(stackNum);
+	var value = this.values[topIndex];
+	this.values[topIndex] = 0;
+	this.sizes[stackNum]--;
+	return value;
+};
+
+
+
+
+
