@@ -13,3 +13,7 @@ Stack.prototype.pop = function() {
 Stack.prototype.peek = function() {
   return this.values[this.values.length - 1];
 };
+
+Stack.prototype.isEmpty = function() {
+  return this.values.length === 0;
+};
