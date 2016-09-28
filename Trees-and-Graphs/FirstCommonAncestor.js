@@ -1,5 +1,5 @@
 
-function findIntersectionOfBinaryTreeNodes(node1, node2) {
+function findFirstCommonAncestor(node1, node2) {
   var delta = depth(node1) - depth(node2);
   var shallower = delta > 0 ? node2 : node1;
   var deeper = delta < 0 ? node1 : node2;
